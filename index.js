@@ -49,3 +49,22 @@ app.post('/short', function(req, res){
         })
     })
 })
+
+app.get('/:alias', function(req, res){
+    let alias = req.params.alias
+
+    let query = `SELECT full_link FROM tb_link WHERE alias = '${alias}'`
+
+    db.connect(function(err, client, done){
+        if(err) throw err
+
+        client.query(query, function (err, result){
+            done()
+            if(err) throw err
+
+            let data = result.rows[0]
+
+            res.redirect(data.full_link)
+        })
+    })
+})
