@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Direct.in</title>
+    <link rel="stylesheet" href="/public/CSS/style.css">
+    <link rel="shortcut icon" href="/public/assets/logo-header.png">
+</head>
+
+<body style="margin:0px;">
+
+    <header class="header-home">
+        <img class="logo-header" src="/public/assets/logo-header.png">
+    </header>
+
+    <section class="content-home-2">
+        <div class="content-detail-2">
+            <div class="content-heading-2">
+                <h1 class="heading-info">URL Created</h1>
+            </div>
+
+            <div class="input-link-2">
+                <input type="text" id="copyText" class="long-link-2" name="longLink" value="http://direct.in/{{alias}}">
+            </div>
+
+            <div class="btn-create-3">
+                <button class="btn-create-detail-3" onclick="copyLink()">Copy</button>
+            </div>
+
+            <div class="btn-create-2">
+                <a href="/">
+                    <button class="btn-create-detail-2">Create New</button>
+                </a>                
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer-home">
+        <div>
+            <div class="footer-detail">
+                <p class="copyright-text">&copy; Codeness 2022</p>
+            </div>
+            <div class="btn-donation" style="display:inline-block">
+                <button class="btn-donation-detail"><b>DONATION</b></button>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function copyLink() {
+    var copyText = document.getElementById("copyText").value;
+    navigator.clipboard.writeText(copyText).then(() => {
+        // Alert the user that the action took place.
+        // Nobody likes hidden stuff being done under the hood!      
+        swal("Link Copied!", "Share to your friend", "success");
+    });
+  }
+</script>
+</html>
